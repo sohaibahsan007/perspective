@@ -10,15 +10,7 @@
                 {
                     "type": "tab-area",
                     "widgets": [
-                        "PERSPECTIVE_GENERATED_ID_0",
-                        "PERSPECTIVE_GENERATED_ID_1"
-                    ],
-                    "currentIndex": 0
-                },
-                {
-                    "type": "tab-area",
-                    "widgets": [
-                        "PERSPECTIVE_GENERATED_ID_2"
+                        "PERSPECTIVE_GENERATED_ID_0"
                     ],
                     "currentIndex": 0
                 }
@@ -32,7 +24,7 @@
     "mode": "globalFilters",
     "viewers": {
         "PERSPECTIVE_GENERATED_ID_0": {
-            "plugin": "datagrid",
+            "plugin": "d3_xy_scatter",
             "row-pivots": [
                 "Region",
                 "State"
@@ -47,72 +39,6 @@
             ],
             "master": false,
             "name": "Sales Report",
-            "table": "superstore",
-            "linked": false
-        },
-        "PERSPECTIVE_GENERATED_ID_1": {
-            "plugin": "datagrid",
-            "columns": [
-                "Row ID",
-                "Order ID",
-                "Ship Mode",
-                "Customer ID",
-                "Customer Name",
-                "Segment",
-                "Country",
-                "City",
-                "State",
-                "Postal Code",
-                "Region",
-                "Product ID",
-                "Category",
-                "Sub-Category",
-                "Product Name",
-                "Sales",
-                "Quantity",
-                "Discount",
-                "Profit",
-                "Order Date",
-                "Ship Date"
-            ],
-            "master": false,
-            "name": "superstore.csv",
-            "table": "superstore",
-            "linked": false
-        },
-        "PERSPECTIVE_GENERATED_ID_2": {
-            "plugin": "d3_treemap",
-            "row-pivots": [
-                "State"
-            ],
-            "columns": [
-                "Sales",
-                "Profit",
-                null
-            ],
-            "sort": [
-                [
-                    "Profit",
-                    "desc"
-                ]
-            ],
-            "plugin_config": {
-                "realValues": [
-                    "Sales",
-                    "Profit",
-                    null
-                ],
-                "treemaps": {
-                    "": {
-                        "treemapLevel": 0,
-                        "treemapRoute": [
-                            ""
-                        ]
-                    }
-                }
-            },
-            "master": false,
-            "name": "Sales Report (by State)",
             "table": "superstore",
             "linked": false
         }

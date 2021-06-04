@@ -60,6 +60,6 @@
         "gradient-parser": "0.1.5"
     },
     "devDependencies": {
-        "@finos/perspective-test": "^0.8.3"
+        "webpack-cli": "^4.7.0"
     }
 }

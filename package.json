@@ -103,9 +103,6 @@
         "react-dom": "16.8.6",
         "autoprefixer": "9.7.0"
     },
-    "pre-commit": [
-        "precommit"
-    ],
     "scripts": {
         "postinstall": "node scripts/install_emsdk.js",
         "build,test": "npm run --silent build && npm run --silent test",
@@ -120,14 +117,10 @@
         "_wheel_python": "node scripts/_wheel_python.js",
         "setup": "node scripts/setup.js",
         "docs": "node scripts/docs.js",
-        "test": "node scripts/test.js",
-        "test_js": "node scripts/test_js.js",
-        "test_python": "node scripts/test_python.js",
         "clean": "node scripts/clean.js",
         "start": "lerna run start --stream --scope",
         "precommit": "npm run lint",
         "lint": "npm-run-all lint:*",
-        "lint:eslint": "eslint \"packages/*/src/**/*.js\" \"packages/*/test/**/*.js\" \"examples/*/*.js\"",
         "lint:typescript": "eslint \"packages/perspective-jupyterlab/src/ts/*.ts\"",
         "lint:python": "node scripts/lint_python.js",
         "fix:es": "npm run lint:eslint -- --fix",
