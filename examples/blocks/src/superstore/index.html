@@ -5,7 +5,7 @@
         <link rel='stylesheet' href="https://unpkg.com/@finos/perspective-workspace/dist/umd/material.css">
         <script src="https://unpkg.com/@finos/perspective-workspace/dist/umd/perspective-workspace.js"></script>
         <script src="/node_modules/@finos/perspective-viewer-datagrid/dist/umd/perspective-viewer-datagrid.js"></script>
-        <script src="/node_modules/@finos/perspective-viewer-d3fc/dist/umd/perspective-viewer-d3fc.js"></script>
+        <script src="../../../../packages/perspective-viewer-d3fc/dist/umd/perspective-viewer-d3fc.js"></script>
         <script src="/node_modules/@finos/perspective/dist/umd/perspective.js"></script>
                 
         <style>
@@ -29,36 +29,30 @@
     <body> 
 
         <perspective-workspace id="workspace">
-            <perspective-viewer table="superstore"></perspective-viewer>
+            <perspective-viewer table="series1"></perspective-viewer>
         </perspective-workspace>
       
         <script>
 
-            const DATA_URL = "/node_modules/superstore-arrow/superstore.arrow";
-                        
             async function get_layout() {
                 const req = await fetch("layout.json");
                 const json = await req.json();
                 return json;
             }
 
-            const datasource = async () => {
-                const request = fetch(DATA_URL);
-                const worker = perspective.worker();
-                const response = await request;
-                const buffer = await response.arrayBuffer();
-                return await worker.table(buffer);
-            };
-
-            window.addEventListener("load", async () => {
-                const plugin = window.getPlugin("d3_heatmap");
-                plugin.max_cells = 10000;
-                plugin.max_columns = 200;
-                window.workspace.tables.set("superstore", datasource());
+            window.addEventListener("DOMContentLoaded", function () {
+            var url = './series1.csv';
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.onload = function () {
+                perspective.worker().table(xhr.response).then(async (table) => {
+                window.workspace.tables.set("series1", table);
                 const layout = await get_layout();
                 window.workspace.restore(layout);
+                });
+            }
+                xhr.send(null);
             });
-
         </script>
     </body>
 </html>

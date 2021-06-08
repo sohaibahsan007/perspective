@@ -24,22 +24,22 @@
     "mode": "globalFilters",
     "viewers": {
         "PERSPECTIVE_GENERATED_ID_0": {
-            "plugin": "d3_xy_scatter",
+            "plugin": "d3_y_scatter",
             "row-pivots": [
-                "Region",
-                "State"
+                "timestamp_ns"
             ],
             "column-pivots": [
-                "Category",
-                "Sub-Category"
             ],
             "columns": [
-                "Sales",
-                "Profit"
+                "bid_price_1",
+                "bid_price_2",
+                "bid_price_3",
+                "ask_price_1",
+                "ask_price_2"
             ],
             "master": false,
-            "name": "Sales Report",
-            "table": "superstore",
+            "name": "Bid Price Report",
+            "table": "series1",
             "linked": false
         }
     }

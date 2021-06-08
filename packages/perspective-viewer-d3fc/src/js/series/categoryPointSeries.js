@@ -17,9 +17,22 @@ export function categoryPointSeries(settings, seriesKey, color, symbols) {
     if (symbols) {
         series.type(symbols(seriesKey));
     }
-
     series.decorate(selection => {
-        selection.style("stroke", d => withoutOpacity(color(d.colorValue || seriesKey))).style("fill", d => withOpacity(color(d.colorValue || seriesKey), opacity));
+        selection
+            .style("stroke", d => {
+                return withoutOpacity(color(d.colorValue || seriesKey));
+            })
+            .style("fill", d => withOpacity(color(d.colorValue || seriesKey), opacity));
+
+        // Code to Rotate Ask Price Down
+        selection
+            .enter()
+            .select(".point path")
+            .style("transform", d => {
+                if (d.key?.includes("ask_price")) {
+                    return "rotate(180deg)";
+                } else return "";
+            });
     });
 
     return series.crossValue(d => d.crossValue).mainValue(d => d.mainValue);
